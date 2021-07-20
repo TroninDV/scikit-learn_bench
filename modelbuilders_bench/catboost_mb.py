@@ -125,7 +125,7 @@ cb_params = {
     # 'colsample_bynode': 1,
     'reg_lambda': params.reg_lambda,
     # 'reg_alpha': params.reg_alpha,
-    # 'tree_method': params.tree_method,    
+    # 'tree_method': params.tree_method,
     'grow_policy': params.grow_policy,
     'max_bin': params.max_bin,
     'objective': params.objective,
@@ -154,15 +154,13 @@ else:
     # Covtype has one class more than there is in train
     if params.dataset_name == 'covtype':
         params.n_classes += 1
-    
-    if params.n_classes > 2:        
+
+    if params.n_classes > 2:
         cb_params['bootstrap_type'] = 'Bernoulli'
         cb_params['classes_count'] = params.n_classes
-    else:        
+    else:
         cb_params['scale_pos_weight'] = params.scale_pos_weight
 
-    
-    
 
 t_creat_train, dtrain = bench.measure_function_time(cb.Pool, X_train, params=params,
                                                     label=y_train)
@@ -189,12 +187,12 @@ if cb_params['objective'].startswith('multi'):
                 pool = cb.Pool(X_test, label=y_test)
             return booster.predict(pool, prediction_type='Probability')
     cb_params['objective'] = 'MultiClass'
-else:    
+else:
     if cb_params['objective'] == 'Logloss':
         def predict(pool):
             if pool is None:
                 pool = cb.Pool(X_test, label=y_test)
-            return booster.predict(pool, prediction_type = 'Class')
+            return booster.predict(pool, prediction_type='Class')
     else:
         def predict(pool):
             if pool is None:
@@ -205,7 +203,6 @@ else:
 fit_time, booster = bench.measure_function_time(
     fit, None if params.count_pool else dtrain, params=params)
 
-
 train_metric = metric_func(
     convert_cb_predictions(predict(dtrain), params.objective),
     y_train)
@@ -213,7 +210,8 @@ train_metric = metric_func(
 predict_time, y_pred = bench.measure_function_time(
     predict, None if params.count_pool else dtest, params=params)
 
-test_metric = metric_func(convert_cb_predictions(y_pred, params.objective), y_test)
+test_metric = metric_func(convert_cb_predictions(
+    y_pred, params.objective), y_test)
 
 transform_time, model_daal = bench.measure_function_time(
     get_gbt_model_from_catboost, booster, params=params)
