@@ -6,7 +6,6 @@
         "dtype": "float32",
         "count-pool": "",
         "algorithm": "catboost_mb",
-        "n-estimators": 1,
         "max-depth": 8,
         "learning-rate": 0.1,
         "reg-lambda": 1,
