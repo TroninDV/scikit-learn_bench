@@ -125,7 +125,6 @@ cb_params = {
     # 'colsample_bynode': 1,
     'reg_lambda': params.reg_lambda,
     # 'reg_alpha': params.reg_alpha,
-    # 'tree_method': params.tree_method,
     'grow_policy': params.grow_policy,
     'max_bin': params.max_bin,
     'objective': params.objective,
