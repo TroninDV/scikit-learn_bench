@@ -9,7 +9,8 @@
         "max-depth": 8,
         "learning-rate": 0.1,
         "reg-lambda": 1,
-        "max-leaves": 256
+        "max-leaves": 256,
+        "num-threads": 56 
     },
     "cases": [
         {
