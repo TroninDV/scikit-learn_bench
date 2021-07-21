@@ -2,7 +2,7 @@
     "common": {
         "lib": "modelbuilders",
         "data-format": "numpy",
-        "data-order": "F",
+        "data-order": "C",
         "dtype": "float32",
         "algorithm": "catboost_mb",
         "count-pool": ""
