@@ -6,7 +6,7 @@
         "dtype": "float32",
         "algorithm": "catboost_mb",
         "count-pool": "",
-        "grow-policy": "Symmetric"
+        "grow-policy": "SymmetricTree"
     },
     "cases": [
         {
