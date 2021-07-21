@@ -30,6 +30,8 @@ def get_gbt_model_from_catboost(model: catboost.CatBoost):
     else:
          n_iterations = len(model_data['trees'])
 
+    n_classes = 0
+
     if 'class_params' in model_data['model_info']:
         is_classification = True
         n_classes = len(model_data['model_info']['class_params']['class_to_label'])
