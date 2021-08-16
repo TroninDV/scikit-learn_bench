@@ -4,7 +4,7 @@ from os import remove, getpid
 import json
 import re
 from time import time
-from daal4py import gbt_clf_model_builder
+from daal4py import gbt_clf_model_builder, gbt_reg_model_builder
 
 def get_gbt_model_from_catboost(model: Any) -> Any:
     if not model.is_fitted():
