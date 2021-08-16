@@ -1,8 +1,8 @@
 {
     "common": {
         "lib": "modelbuilders",
-        "data-format": "numpy",
-        "data-order": "C",
+        "data-format": "nupmy",
+        "data-order": "",
         "grow-policy": ["Depthwise", "SymmetricTree"],
         "dtype": "float32",
         "algorithm": "catboost_mb",
@@ -13,63 +13,21 @@
             "dataset": [
                 {
                     "source": "npy",
-                    "name": "abalone",
+                    "name": "letters",
                     "training": {
-                        "x": "data/abalone_x_train.npy",
-                        "y": "data/abalone_y_train.npy"
+                        "x": "data/letters_x_train.npy",
+                        "y": "data/letters_y_train.npy"
                     },
                     "testing": {
-                        "x": "data/abalone_x_test.npy",
-                        "y": "data/abalone_y_test.npy"
+                        "x": "data/letters_x_test.npy",
+                        "y": "data/letters_y_test.npy"
                     }
                 }
             ],
             "learning-rate": 0.03,
             "max-depth": 6,
             "n-estimators": 1000,
-            "objective": "RMSE"
-        },
-        {
-            "dataset": [
-                {
-                    "source": "npy",
-                    "name": "mortgage1Q",
-                    "training": {
-                        "x": "data/mortgage1Q_x_train.npy",
-                        "y": "data/mortgage1Q_y_train.npy"
-                    }
-                }
-            ],
-            "n-estimators": 100,
-            "objective": "RMSE",
-            "max-depth": 8,
-            "scale-pos-weight": 2,
-            "learning-rate": 0.1,
-            "subsample": 1,
-            "reg-lambda": 1,
-            "max-leaves": 256
-        },
-
-        {
-            "objective": "RMSE",
-            "dataset": [
-                {
-                    "source": "npy",
-                    "name": "year_prediction_msd",
-                    "training": {
-                        "x": "data/year_prediction_msd_x_train.npy",
-                        "y": "data/year_prediction_msd_y_train.npy"
-                    },
-                    "testing": {
-                        "x": "data/year_prediction_msd_x_test.npy",
-                        "y": "data/year_prediction_msd_y_test.npy"
-                    }
-                }
-            ],
-            "max-depth": 8,
-            "learning-rate": 0.1,
-            "reg-lambda": 1,
-            "max-leaves": 256
+            "objective": "multi:softprob"
         }
     ]
 }
