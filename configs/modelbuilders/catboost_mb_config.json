@@ -1,7 +1,7 @@
 {
     "common": {
         "lib": "modelbuilders",
-        "data-format": "nupmy",
+        "data-format": "numpy",
         "data-order": "",
         "grow-policy": ["Depthwise", "SymmetricTree"],
         "dtype": "float32",
