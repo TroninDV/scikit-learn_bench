@@ -109,8 +109,8 @@ metric_func: tp.List[tp.Callable]
 
 if params.objective == "RMSE":
     task = 'regression'
-    metric_name = ['rmse']
-    metric_func = [bench.rmse_score]
+    metric_name = ['rmse', 'r2']
+    metric_func = [bench.rmse_score, bench.r2_score]
 else:
     task = 'classification'
     metric_name = ['accuracy', 'log_loss']

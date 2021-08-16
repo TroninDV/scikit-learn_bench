@@ -1,7 +1,7 @@
 {
     "common": {
         "lib": "modelbuilders",
-        "data-format": ["pandas", "numpy"],
+        "data-format": "pandas",
         "data-order": "F",
         "grow-policy": ["Depthwise", "SymmetricTree"],
         "dtype": "float32",
