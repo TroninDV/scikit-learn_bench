@@ -21,7 +21,7 @@ import numpy as np
 import catboost as cb
 import daal4py
 import typing as tp
-
+from converter import get_gbt_model_from_catboost
 
 def convert_probs_to_classes(y_prob):
     return np.array([np.argmax(y_prob[i]) for i in range(y_prob.shape[0])])
@@ -183,7 +183,7 @@ for i, func in enumerate(metric_func):
         y_pred, params.objective, metric_name[i]))
 
 transform_time, model_daal = bench.measure_function_time(
-    daal4py.get_gbt_model_from_catboost, booster, params=params)
+    get_gbt_model_from_catboost, booster, params=params)
 
 if hasattr(params, 'n_classes'):
     predict_algo = daal4py.gbt_classification_prediction(
