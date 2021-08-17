@@ -1,9 +1,9 @@
 {
     "common": {
         "lib": "modelbuilders",
-        "data-format": "numpy",
-        "data-order": "C",
-        "grow-policy": "Depthwise",
+        "data-format": "pandas",
+        "data-order": "F",
+        "grow-policy": "SymmetricTree",
         "dtype": "float32",
         "algorithm": "catboost_mb",
         "count-pool": "",
