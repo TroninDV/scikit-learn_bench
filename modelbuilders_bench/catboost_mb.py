@@ -74,12 +74,12 @@ parser.add_argument('--scale-pos-weight', type=float, default=1,
 parser.add_argument('--subsample', type=float, default=1,
                     help='Subsample ratio of the training instances')
 
-parser.add_argument('--test-size', type=int, default=-1)
+parser.add_argument('--threads', type=int, default=100,
+                    help='Number of threads')
 
 params = bench.parse_args(parser)
 
-if params.test_size == -1:
-    params.test_size = None
+daal4py.daalinit(params.threads)
 
 X_train, X_test, y_train, y_test = bench.load_data(params)
 
