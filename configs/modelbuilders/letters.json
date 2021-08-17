@@ -1,0 +1,33 @@
+{
+    "common": {
+        "lib": "modelbuilders",
+        "data-format": "pandas",
+        "grow-policy": "SymmetricTree",
+        "dtype": "float32",
+        "algorithm": "catboost_mb",
+        "count-pool": "",
+        "threads": [112, 56, 28, 14]
+    },
+    "cases": [
+        {
+            "dataset": [
+                {
+                    "source": "npy",
+                    "name": "letters",
+                    "training": {
+                        "x": "data/letters_x_train.npy",
+                        "y": "data/letters_y_train.npy"
+                    },
+                    "testing": {
+                        "x": "data/letters_x_test.npy",
+                        "y": "data/letters_y_test.npy"
+                    }
+                }
+            ],
+            "learning-rate": 0.03,
+            "max-depth": 6,
+            "n-estimators": 1000,
+            "objective": "multi:softprob"
+        }
+    ]
+}
